@@ -38,6 +38,29 @@ class Carro {
         echo "<br>";
     }
 
+    public function Abastecer(){
+        $listros_tanque = $this->tanque;
+        $litros_max = 200;
+
+        while ($listros_tanque < $litros_max) {
+            $listros_tanque++;
+        }
+
+        $this->tanque = $listros_tanque;
+
+        echo "Abastecido " . $this->getNivelTanque();
+    }
+
+    public function calcularImposto(){
+        $valor_veiculo = $this->preco;
+
+        echo "O valor do veiculo é " . $valor_veiculo . "<br>";
+
+        $pagar_imposto = $valor_veiculo * (4/ 100);
+
+        echo "O total de imposto é " . $pagar_imposto;
+    }
+
     public function getAnoCarro(){
         return $this->ano_carro;
     }
@@ -85,7 +108,7 @@ class Carro {
         $this->marca = $marca;
     }
     
-    public function getTanque(){
+    public function getNivelTanque(){
         return $this->tanque;
     }
     public function setTanque($tanque){
@@ -128,7 +151,7 @@ echo $Marca;
 
 echo "<br>";
 $car->setTanque(150.0);
-$Tanque = $car->getTanque();
+$Tanque = $car->getNivelTanque();
 echo $Tanque;
 
 echo "<br>";
@@ -156,6 +179,12 @@ $car->Andar();
 $car->Andar();
 $car->Andar();
 $car->Andar();
+
+$car->Abastecer();
+
+echo "<br>";
+
+$car->calcularImposto();
 
 
 
